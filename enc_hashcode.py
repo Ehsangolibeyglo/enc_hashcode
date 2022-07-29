@@ -9,17 +9,17 @@ from Crypto.Cipher import AES
 from Crypto.Util.Padding import pad
 
 
-bot = Bot("app_name",auth="hnbegvqoujaojlmapkqgpdtckpzjpsva",displayWelcome=False)
-target = "g0BpV6y00799e70887c8fb64420c39d8"
+bot = Bot("app_name",auth="",displayWelcome=False)
+target = ""
 
-path = "/storage/emulated/0/Music/Macan Band - Ba To.mp3"
+path = ""
 
-key = bytearray("a"*32, "UTF-8")
-iv = bytearray.fromhex('00000000000000000000000000000000')
+enckey = bytearray("a"*32, "UTF-8")
+hex = bytearray.fromhex('00000000000000000000000000000000')
 
 def encrypt(text):
     raw = pad(text.encode('UTF-8'), AES.block_size)
-    aes = AES.new(key, AES.MODE_CBC, iv)
+    aes = AES.new(enckey, AES.MODE_CBC, hex)
     enc = aes.encrypt(raw)
     result = base64.b64encode(enc).decode('UTF-8')
     return result
